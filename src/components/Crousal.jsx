@@ -9,11 +9,13 @@ function Crousal() {
         dots: true,
         
         infinite: true,
-        speed: 500,
         slidesToShow: 4,
         slidesToScroll: 3,
-        
         arrows:false,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 3000,
+        
         
         responsive: [
             {
