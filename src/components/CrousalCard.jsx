@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import banner from "../assets/banner.jpg";
 
-function CrousalCard({ image, title, description }) {
+function CrousalCard({ title, description }) {
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -19,7 +20,12 @@ function CrousalCard({ image, title, description }) {
             className="h-56 bg-gray-700 rounded-md shadow-lg shadow-gray-900 overflow-hidden"
             style={{ width: cardWidth }}
         >
-            {image && <img src={image} alt={title} className="w-full h-32 object-cover" />}
+            <img
+                src={banner}
+                alt={title}
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'cover' }}
+            />
             <div className="p-4">
                 <h3 className="text-lg text-white font-bold">{title}</h3>
                 <p className="text-gray-300">{description}</p>
