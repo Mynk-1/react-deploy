@@ -2,10 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGamepad, faWallet, faIndianRupeeSign, faUser, faBell } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 
 function Navbar() {
   const navigate = useNavigate();
-  let loggedIn = false;
+  const loggedIn =useSelector((state)=> state.Card.loggedIn )
 
   const handleSigninClick = () => {
     navigate('/signin');
@@ -38,8 +39,8 @@ function Navbar() {
       )}
       {loggedIn && (
         <div className='flex gap-7'>
-          <FontAwesomeIcon icon={faUser} className='text-white text-xl' />
-          <FontAwesomeIcon icon={faBell} className='text-white text-xl' />
+         
+          <FontAwesomeIcon icon={faBell} className='text-white text-2xl' />
         </div>
       )}
     </nav>

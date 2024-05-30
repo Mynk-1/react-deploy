@@ -2,6 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+    loggedIn: true,
     selectedFilter: "Bgmi",
     CardData: {},
 };
@@ -19,8 +20,11 @@ const cardSlice = createSlice({
         otherToggle: (state) => {
             state.selectedFilter = "Other";
         },
+        logoutHandler:(state)=>{
+            state.loggedIn = !state.loggedIn;
+        }
     },
 });
 
-export const { bgmiToggle, ludoToggle, otherToggle } = cardSlice.actions;
+export const { bgmiToggle, ludoToggle, otherToggle ,logoutHandler} = cardSlice.actions;
 export default cardSlice.reducer;
