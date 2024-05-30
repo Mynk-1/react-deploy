@@ -1,3 +1,4 @@
+// CrousalCard.js
 import React, { useState, useEffect } from 'react';
 import banner from "../assets/banner.jpg";
 

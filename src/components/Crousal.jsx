@@ -10,7 +10,7 @@ function Crousal() {
         
         infinite: true,
         slidesToShow: 4,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         arrows:false,
         autoplay: true,
         speed: 2000,
@@ -22,7 +22,7 @@ function Crousal() {
               breakpoint: 1300,
               settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
                 infinite: true,
                 dots: true
               }
@@ -31,7 +31,7 @@ function Crousal() {
               breakpoint: 1080,
               settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
                 initialSlide: 2
               }
             },
@@ -48,7 +48,7 @@ function Crousal() {
     };
 
     return (
-        <div className='Crousal p-4 w-full pt-[80px]'> 
+        <div className='Crousal p-4 w-full'> 
             <Slider {...settings} className="custom-slider" >
                 <CrousalCard />
                 <CrousalCard />

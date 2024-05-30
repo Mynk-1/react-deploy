@@ -1,37 +1,50 @@
+import Navbar from "./components/Navbar"
+import BottomNavbar from "./components/BottomNav"
+import Home  from "./components/Home";
+import SigninForm from "./components/SigninForm";
+import SignupForm from "./components/SignupForm";
 
-import Navbar from './components/Navbar'
-import Crousal from './components/Crousal'
-import Filter from './components/Filter';
-import BottomNavbar from './components/BottomNav';
-import Cards from './components/Cards';
+import {createBrowserRouter,RouterProvider,Link,Outlet,useLoaderData,useNavigation,Router} from "react-router-dom";
+ 
+const AppLayout = () => (
+  <div className="App">
+    <Navbar /> {/* Fixed position top navigation */}
+    <div className="App-content">
+      <Outlet /> {/* This is where the routed components will be rendered */}
+    </div>
+    <BottomNavbar /> {/* Fixed position bottom navigation */}
+  </div>
+);
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <><AppLayout/></>,
+    children: [
+      { path: '/', element: <Home/> },
+      { path: '/signin', element: <SigninForm/> },
+      { path: '/signup', element: <SignupForm/> },
+    ],
+  },
+]);
+ 
+ 
 
 
 
 function App() {
-  
-
-    
-        const screenWidth = window.screen.width;
-       const screenHeight = window.screen.height;
 
   return (
     
-    <div className=' bg-dark font-poppins'>
-      
-     <Navbar/>
-     <Crousal/>
-     <Filter/>
-     <div className='flex flex-wrap mx-auto pb-20 lg:w-[1250px] '><Cards className=""/>
-     <Cards className=""/>
-     <Cards className=""/>
-     <Cards className=""/>
-     <Cards className=""/>
-     <Cards className=""/></div>
-     <BottomNavbar />
-    </div>
+    
+    <>
+    
+    <RouterProvider router={router}/>
+    
+    
+    </>
     
   )
 }
 
-export default App
+export default App;
