@@ -18,6 +18,6 @@ mongoose.connect('mongodb+srv://ma_ayank16:Mayank16@cluster0.bwryifg.mongodb.net
 
 // Import Routes
 const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
+app.use('/', authRoutes);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));

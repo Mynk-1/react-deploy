@@ -1,10 +1,10 @@
 {
     "version": 2,
     "builds": [
-      { "src": "backend/package.json", "use": "@now/node-server" }
+      { "src": "./index.js", "use": "@now/node-server" }
     ],
     "routes": [
-      { "src": "/api/auth/(.*)", "dest": "backend/index.js" }
+      { "src": "/(.*)", "dest": "/" }
     ]
   }
   
