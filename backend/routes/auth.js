@@ -7,6 +7,9 @@ const User = require('../models/Users');
 const router = express.Router();
 
 // Registration route
+router.get("/",(req,res)=>{
+  res.json({"success":"app deployed successfully"})
+})
 router.post(
   '/register',
   [
