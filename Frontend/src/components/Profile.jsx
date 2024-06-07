@@ -13,6 +13,10 @@ const UserProfile = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const logout=()=>{
+    dispatch(logoutHandler());
+    navigate("/")
+  }
 
   return (
     <div className="max-w-md mx-auto border-b border-gray-300 pt-24  ">
@@ -41,7 +45,7 @@ const UserProfile = () => {
         </button>
         <button
           className="py-2 font-semibold"
-          onClick={()=>dispatch(logoutHandler())}
+          onClick={logout}
         >
           Logout
         </button>
