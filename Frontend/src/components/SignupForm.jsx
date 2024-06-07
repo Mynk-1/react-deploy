@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {loginHandler} from '../redux/slice/CardSlice';
 import {useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
   const [phone, setPhone] = useState('');
@@ -13,8 +14,17 @@ const SignupForm = () => {
   const [validationErrors, setValidationErrors] = useState([]);
   const [otherErrors, setOtherErrors] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
 
-  const apiUrl = 'http://localhost:3000/api/register';
+  const login=()=>{
+    dispatch(loginHandler());
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
+  }
+
+  const apiUrl = 'https://vercel-test-phi-rose.vercel.app/api/register';
   const notifySuccess = () => toast.success("User created successfully");
   const notifyInfo = (message) => toast.info(message);
   const notifyError = (message) => toast.error(message);
@@ -57,6 +67,7 @@ const SignupForm = () => {
       const response = await axios.post(apiUrl, postData, { withCredentials: true });
       if (response.status === 200) {
         notifySuccess();
+        login()
       } else if (response.status === 201) {
         notifyInfo(response.data.msg);
       }
