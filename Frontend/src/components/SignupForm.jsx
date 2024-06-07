@@ -14,6 +14,7 @@ const SignupForm = () => {
 
   const apiUrl = 'http://localhost:3000/api/register';
   const notifySuccess = () => toast.success("User created successfully");
+  const notifyInfo = (message) => toast.info(message);
   const notifyError = (message) => toast.error(message);
 
   const validateForm = () => {
@@ -54,9 +55,10 @@ const SignupForm = () => {
       const response = await axios.post(apiUrl, postData, { withCredentials: true });
       if (response.status === 200) {
         notifySuccess();
+      } else if (response.status === 201) {
+        notifyInfo(response.data.msg);
       }
       console.log(response);
-      
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setValidationErrors(error.response.data.validationErrors || []);
