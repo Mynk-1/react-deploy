@@ -19,28 +19,28 @@ const SigninForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6 text-gray-800">Sign In</h2>
+    <div className="flex justify-center items-center min-h-screen bg-dark p-4">
+      <form onSubmit={handleSubmit} className="bg-primary p-6 rounded shadow-md w-full max-w-sm border-gray-900 border">
+        <h2 className="text-2xl font-bold mb-6 text-white">Sign In</h2>
         <div className="mb-4">
-          <label htmlFor="phone" className="block text-gray-700 font-bold mb-2">Phone Number:</label>
+          <label htmlFor="phone" className="block text-white font-bold mb-2">Phone Number:</label>
           <input
             type="text"
             id="phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-900 rounded focus:outline-none focus:border-slate-400 bg-slate-700"
             required
           />
         </div>
         <div className="mb-6">
-          <label htmlFor="password" className="block text-gray-700 font-bold mb-2">Password:</label>
+          <label htmlFor="password" className="block text-white font-bold mb-2">Password:</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 border border-gray-900 rounded focus:outline-none focus:border-slate-400 bg-slate-700"
             required
           />
         </div>

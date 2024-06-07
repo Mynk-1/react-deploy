@@ -21,7 +21,7 @@ const SignupForm = () => {
     const phoneRegex = /^[0-9]{10}$/;
 
     if (!phone.match(phoneRegex)) {
-      errors.push('Phone number must be 10 digits.');
+      errors.push('Phone number must be 10 digits Number.');
     }
 
     if (password.length < 6) {
@@ -55,6 +55,7 @@ const SignupForm = () => {
       if (response.status === 200) {
         notifySuccess();
       }
+      console.log(response);
       
     } catch (error) {
       if (error.response && error.response.status === 400) {
